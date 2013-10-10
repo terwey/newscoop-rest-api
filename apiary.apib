@@ -1,0 +1,189 @@
+FORMAT: 1A
+HOST: http://www.newscooptest.com/
+
+#Newscoop
+
+##Article types [/articleTypes]
++ Model (application/json)
+
+    + Headers
+    
+            Location: /articleTypes
+
+    + Body
+    
+            {
+                0: "page",
+                1: "news",
+                2: "scoop",
+                3: "ticker"
+            }
+            
+
+### Retrieve [GET]
+Retrieve all available Article Types
++ Response 200
+
+    [Article types][]
+
+##Article type [/articleTypes/{id}]
++ Parameters
+    + id (required, number, `2`) ... Id of an Article Type.
+        
++ Model (application/json)
+
+    + Headers
+    
+            Location: /articleTypes/{id}
+
+    + Body
+    
+            {
+                "name": "news",
+                "fields": {
+                    "title": "text"
+                    "lead": "text",
+                    "content": "wysiwyg"
+                }
+            }
+
+### Retrieve an Article Type [GET]
+Retrieve a specific Article type
++ Response 200
+    
+    [Article type][]
+
+### Update an Article Type [PATCH]
++ Request Update Article Type (application/json)
+
+    [Article type][]
+
++ Response 200
+
+    [Article type][]
+
+### Replace an Article Type [PUT]
++ Request Replace Article Type (application/json)
+
+    [Article type][]
+
++ Response 200
+
+    [Article type][]
+    
+### Delete an Article Type [DELETE]
++ Response 204
+
+##Article [/articles/{id}/{language}]
++ Parameters
+    + id (required, number, `2`) ... Id of an Article Type.
+    + language (optional, number, `1`) ... Id of a Language
+        
++ Model (application/json)
+
+    + Headers
+    
+            Location: /articles/{id}/{language}
+
+    + Body
+    
+            {
+                "title": "foo bar baz",
+                "languageId": 1,
+                "publicationId": 3,
+                "issueId": 18,
+                "sectionId": 2,
+                // the articleType is custom
+                "articleType": "page",
+                "fields": {
+                    // these depend on the chosen articleType
+                    }
+                }
+                
+### Insert [POST]
++ Request Insert (application/json)
+
+    [Article][]
+    
++ Response 201
+    + Headers
+    
+            Location: /articles/{id}/{language}
+    
+    + Body
+
+            [Article][]
+    
+### Update [PATCH]
++ Request Update (application/json)
+
+    [Article][]
+
++ Response 200
+    + Headers
+    
+            Location: /articles/{id}/{language}
+
+    + Body
+    
+            [Article][]
+            
+            
+### Replace [PUT]
++ Request Replace (application/json)
+
+    [Article][]
+
++ Response 200
+    + Headers
+    
+            Location: /articles/{id}/{language}
+
+    + Body
+    
+            [Article][]
+            
+### Delete [DELETE]
++ Response 204
+
+
+##Comments [/comments/{article}/{language}/{id}]
++ Parameters
+    + id (required, number, `8`) ... Id of a Comment
+    + article (required, number, `2`) ... Id of an Article
+    + language (required, number, `1`) ... Id of a Language
+        
++ Model (application/json)
+
+    + Headers
+    
+            Location: /comments/{article}/{language}/{id}
+
+    + Body
+    
+            {
+                "content": "foo bar baz",
+                "commenter": {
+                    "name": "foo baz"
+                    "email": "foo@example.org"
+                }
+            }
+
+### Retrieve a Comment [GET]
++ Response 200
+    
+    [Comments][]
+
+### Insert a Comment [POST]
++ Request Insert (application/json)
+
+    [Comments][]
+
++ Response 201
+    + Headers
+        
+            Location: /comments/{article}/{language}/{id}
+
+    + Body
+    
+            [Comments][]
