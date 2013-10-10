@@ -190,3 +190,38 @@ Retrieve a specific Article type
             
 ### Delete a Comment [DELETE]
 + Response 204
+
+
+##Featured Articles [/articles-lists/{id}]
++ Parameters
+    + id (required, number, `2`) ... Id of a Featured Article list
+        
++ Model (application/json)
+
+    + Headers
+    
+            Location: /articles-lists/{id}
+
+    + Body
+    
+            {
+                "title": "foo bar",
+                "languageId": 1
+            }
+                
+### Retrieve [GET]
++ Response 200
+[Featured Articles][]
+
+### Insert [POST]
++ Request Insert new Featured Article list (application/json)
+    [Featured Articles][]    
+
++ Response 201
+    + Headers
+    
+            Location: /articles-lists/{id}
+
+    + Body
+    
+            [Featured Articles][]
