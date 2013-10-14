@@ -1,7 +1,9 @@
-FORMAT: 1A
+FORMAT: X-1A
 HOST: http://www.newscooptest.com/
 
 #Newscoop
+
+# Group Article related resources
 
 ##Article types [/articleTypes]
 + Model (application/json)
@@ -102,50 +104,96 @@ Retrieve a specific Article type
                 
 ### Insert [POST]
 + Request Insert (application/json)
-
-    [Article][]
+[Article][]
     
 + Response 201
-    + Headers
-    
-            Location: /articles/{id}/{language}
-    
-    + Body
-
-            [Article][]
+[Article][]
     
 ### Update [PATCH]
 + Request Update (application/json)
-
-    [Article][]
+[Article][]
 
 + Response 200
-    + Headers
-    
-            Location: /articles/{id}/{language}
+[Article][]
 
-    + Body
-    
-            [Article][]
-            
             
 ### Replace [PUT]
 + Request Replace (application/json)
-
-    [Article][]
+[Article][]
 
 + Response 200
-    + Headers
-    
-            Location: /articles/{id}/{language}
-
-    + Body
-    
-            [Article][]
+[Article][]
             
 ### Delete [DELETE]
 + Response 204
 
+
+##ArticleNews [/articles/1/1]
++ Model (application/json)
+
+    + Headers
+    
+            Location: /articles/1/1
+
+    + Body
+    
+            {
+                "title": "foo bar baz",
+                "languageId": 1,
+                "publicationId": 1,
+                "issueId": 1,
+                "sectionId": 1,
+                "articleType": "news",
+                "fields": {
+                        "teaser":"Lorem ipsum dolar amet"
+                    }
+                }
+
+### Retrieve [GET]
++ Response 200
+[ArticleNews][]
+
+
+##Featured Articles [/articles-lists/{id}]
++ Parameters
+    + id (required, number, `2`) ... Id of a Featured Article list
+        
++ Model (application/json)
+
+    + Headers
+    
+            Location: /articles-lists/{id}
+
+    + Body
+    
+            {
+                "title": "foo bar",
+                "languageId": 1
+            }
+                
+### Retrieve [GET]
++ Response 200
+[Featured Articles][]
+
+### Insert [POST]
++ Request Insert new Featured Article list (application/json)
+[Featured Articles][]
+
++ Response 201
+[Featured Articles][]
+            
+### Replace [PUT]
++ Request Insert new Featured Article list (application/json)
+    [Featured Articles][]
+
++ Response 200
+[Featured Articles][]
+            
+### Delete [DELETE]
++ Response 204
+
+
+# Group Comments
 
 ##Comments [/comments/{article}/{language}/{id}]
 + Parameters
@@ -189,55 +237,4 @@ Retrieve a specific Article type
             [Comments][]
             
 ### Delete a Comment [DELETE]
-+ Response 204
-
-
-##Featured Articles [/articles-lists/{id}]
-+ Parameters
-    + id (required, number, `2`) ... Id of a Featured Article list
-        
-+ Model (application/json)
-
-    + Headers
-    
-            Location: /articles-lists/{id}
-
-    + Body
-    
-            {
-                "title": "foo bar",
-                "languageId": 1
-            }
-                
-### Retrieve [GET]
-+ Response 200
-[Featured Articles][]
-
-### Insert [POST]
-+ Request Insert new Featured Article list (application/json)
-    [Featured Articles][]    
-
-+ Response 201
-    + Headers
-    
-            Location: /articles-lists/{id}
-
-    + Body
-    
-            [Featured Articles][]
-            
-### Replace [PUT]
-+ Request Insert new Featured Article list (application/json)
-    [Featured Articles][]    
-
-+ Response 200
-    + Headers
-    
-            Location: /articles-lists/{id}
-
-    + Body
-    
-            [Featured Articles][]
-            
-### Delete [DELETE]
 + Response 204
