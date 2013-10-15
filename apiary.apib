@@ -110,7 +110,6 @@ Retrieve a specific Article type
 + Response 200
 [Article][]
 
-            
 ### Replace [PUT]
 + Request Replace (application/json)
 [Article][]
@@ -123,6 +122,7 @@ Retrieve a specific Article type
 
 
 ##ArticleNews [/articles/1/1]
+This is an Example Article using the ArticleType News
 + Model (application/json)
 
     + Headers
@@ -189,7 +189,7 @@ Retrieve a specific Article type
 
 # Group Comments
 
-##Comment [/comments/{article}/{language}/{id}]
+##Comment [/comment/{article}/{language}/{id}]
 + Parameters
     + id (required, number, `8`) ... Id of a Comment
     + article (required, number, `2`) ... Id of an Article
@@ -224,3 +224,41 @@ Retrieve a specific Article type
 
 ### Delete a Comment [DELETE]
 + Response 204
+
+# Group Topics
+
+##Topic [/topics/{id}/{language}]
++ Parameters
+    + id (required, number, `8`) ... Id of a Comment
+    + language (required, number, `1`) ... Id of a Language
+        
++ Model (application/json)
+
+    + Headers
+    
+            Location: /topics/{id}/{language}
+
+    + Body
+    
+            {
+                "name": "foo bar",
+                "languageId": 1
+            }
+
+### Retrieve a Topic [GET]
++ Response 200
+[Topic][]
+
+### Rename a Topic [PATCH]
++ Request Rename (application/json)
+
+        {
+            "name": "baz"
+        }
+
++ Response 200
+
+        {
+            "name": "baz",
+            "languageId": 1
+        }
