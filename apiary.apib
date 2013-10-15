@@ -25,8 +25,7 @@ HOST: http://www.newscooptest.com/
 ### Retrieve [GET]
 Retrieve all available Article Types
 + Response 200
-
-    [Article types][]
+[Article types][]
 
 ##Article type [/articleTypes/{id}]
 + Parameters
@@ -52,26 +51,21 @@ Retrieve all available Article Types
 ### Retrieve an Article Type [GET]
 Retrieve a specific Article type
 + Response 200
-    
-    [Article type][]
+[Article type][]
 
 ### Update an Article Type [PATCH]
 + Request Update Article Type (application/json)
-
-    [Article type][]
+[Article type][]
 
 + Response 200
-
-    [Article type][]
+[Article type][]
 
 ### Replace an Article Type [PUT]
 + Request Replace Article Type (application/json)
-
-    [Article type][]
+[Article type][]
 
 + Response 200
-
-    [Article type][]
+[Article type][]
     
 ### Delete an Article Type [DELETE]
 + Response 204
@@ -184,7 +178,7 @@ Retrieve a specific Article type
             
 ### Replace [PUT]
 + Request Insert new Featured Article list (application/json)
-    [Featured Articles][]
+[Featured Articles][]
 
 + Response 200
 [Featured Articles][]
@@ -195,7 +189,7 @@ Retrieve a specific Article type
 
 # Group Comments
 
-##Comments [/comments/{article}/{language}/{id}]
+##Comment [/comments/{article}/{language}/{id}]
 + Parameters
     + id (required, number, `8`) ... Id of a Comment
     + article (required, number, `2`) ... Id of an Article
@@ -219,22 +213,14 @@ Retrieve a specific Article type
 
 ### Retrieve a Comment [GET]
 + Response 200
-    
-    [Comments][]
+[Comment][]
 
 ### Insert a Comment [POST]
 + Request Insert (application/json)
-
-    [Comments][]
+[Comment][]
 
 + Response 201
-    + Headers
-        
-            Location: /comments/{article}/{language}/{id}
+[Comment][]
 
-    + Body
-    
-            [Comments][]
-            
 ### Delete a Comment [DELETE]
 + Response 204
