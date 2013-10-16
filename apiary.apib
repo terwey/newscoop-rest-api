@@ -249,6 +249,20 @@ This is an Example Article using the ArticleType News
 + Response 200
 [Topic][]
 
+### Insert a new Topic [POST]
++ Request insert (application/json)
+[Topic][]
+
++ Response 201
+[Topic][]
+
+### Replace a Topic [PUT]
++ Request Replace (application/json)
+[Topic][]
+
++ Response 200
+[Topic][]
+
 ### Rename a Topic [PATCH]
 + Request Rename (application/json)
 
@@ -262,3 +276,6 @@ This is an Example Article using the ArticleType News
             "name": "baz",
             "languageId": 1
         }
+        
+### Delete a Topic [DELETE]
++ Response 204
